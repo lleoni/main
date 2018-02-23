@@ -2,7 +2,7 @@ node{
   stage ('Build') {
  
     checkout scm  
-    withMaven(
+    withMaven(options: [pipelineGraphPublisher(lifecycleThreshold: 'install')],
         // Maven installation declared in the Jenkins "Global Tool Configuration"
         maven: 'M3',
         // Maven settings.xml file defined with the Jenkins Config File Provider Plugin
